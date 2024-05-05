@@ -4,7 +4,7 @@ import { testData } from './test-data';
 const WeekdayPage = () => {
 
   return (
-    <JobCards jobCardData={testData.jdList}/>
+    <JobCards jobCardsData={testData.jdList}/>
   )
 }
 
