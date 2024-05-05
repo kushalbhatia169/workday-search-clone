@@ -7,9 +7,20 @@ import NoImage from "../../../assets/No_image_available.svg";
 import { JobCardData } from '../../../types/job-cards.types';
 import styles from "./job-card.module.css";
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { Avatar } from '@mui/material';
+import { Avatar, Collapse } from '@mui/material';
+// import styled from '@mui/system/styled';
+import React from 'react';
+import useSubSentence from '../../../assets/helpers/use-sub-sentence';
 
 const JobCard = (props: JobCardData) => {
+
+  const [expanded, setExpanded] = React.useState(false);
+  const getSubSentence = useSubSentence();
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
 
   return (
     <Card className={styles.card}>
@@ -36,7 +47,22 @@ const JobCard = (props: JobCardData) => {
       <Typography gutterBottom variant="h5" component="h2">About Company</Typography>
       <CardContent>
         <Typography variant='caption' color="textSecondary" component="p">About us</Typography>
-        <Typography variant="body2" color="textSecondary" component="p">{props.jobDetailsFromCompany}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p"> {
+          props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "oneThird") : ""
+        } </Typography>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p"> {
+            props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "twoThird") : ""
+          } </Typography>
+        </CardContent>
+      </Collapse>
+        <Button
+          onClick={handleExpandClick}
+          aria-label="show more"
+        >
+          View More
+        </Button>
       </CardContent>
       <Typography gutterBottom variant="h5" component="h2">Minimum Experience</Typography>
       <Typography gutterBottom variant="h5" component="h2">{props.minExp} Years</Typography>
