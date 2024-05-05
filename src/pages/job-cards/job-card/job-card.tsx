@@ -44,26 +44,24 @@ const JobCard = (props: JobCardData) => {
         </Typography>
 
       </div>
-      <Typography gutterBottom variant="h5" component="h2">About Company</Typography>
-      <CardContent>
-        <Typography variant='caption' color="textSecondary" component="p">About us</Typography>
-        <Typography variant="body2" color="textSecondary" component="p"> {
-          props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "oneThird") : ""
-        } </Typography>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p"> {
-            props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "twoThird") : ""
-          } </Typography>
+        <CardContent className={styles.cardContent}>
+          <Typography gutterBottom variant="caption" component="p" fontSize={"1rem"} fontWeight={500}>About Company</Typography>
+          <Typography variant='caption' color="textSecondary" component="p" fontWeight={"bold"} fontSize={14}>About us</Typography>
+          <Typography variant='caption' color="textSecondary" component="p">
+            {props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "oneThird") : ""}
+          </Typography>
+          <Collapse in={expanded} timeout="auto" unmountOnExit className={styles.expandedClassContent}>
+             <Typography variant='caption' color="textSecondary" component="p">
+                {props.jobDetailsFromCompany ? getSubSentence(props.jobDetailsFromCompany, "twoThird") : ""}
+             </Typography>
+          </Collapse>
+          <Button
+            onClick={handleExpandClick}
+            aria-label="show more"
+          >
+            View More
+          </Button>
         </CardContent>
-      </Collapse>
-        <Button
-          onClick={handleExpandClick}
-          aria-label="show more"
-        >
-          View More
-        </Button>
-      </CardContent>
       <Typography gutterBottom variant="h5" component="h2">Minimum Experience</Typography>
       <Typography gutterBottom variant="h5" component="h2">{props.minExp} Years</Typography>
       <CardActions className={styles.cardActions}>
