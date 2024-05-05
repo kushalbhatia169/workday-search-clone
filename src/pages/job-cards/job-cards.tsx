@@ -12,7 +12,7 @@ const JobCards = (props: JobCardsProps) => {
 
   return (
     !props.jobCardsData.length ? <CircularProgress /> : (
-      <Grid /*className={classes.container}*/ container alignItems="stretch" spacing={3}>
+      <Grid container alignItems="stretch" spacing={3}>
         {props.jobCardsData.map((item) => (
           <Grid item xs={12} sm={6} md={6}>
             <JobCard {...{...item}}/>

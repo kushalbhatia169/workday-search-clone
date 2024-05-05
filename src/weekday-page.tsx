@@ -1,10 +1,13 @@
+import { Container } from '@mui/material';
 import JobCards from './pages/job-cards/job-cards';
 import { testData } from './test-data';
 
 const WeekdayPage = () => {
 
   return (
-    <JobCards jobCardsData={testData.jdList}/>
+    <Container maxWidth="lg">
+      <JobCards jobCardsData={testData.jdList}/>
+    </Container>
   )
 }
 

@@ -1,0 +1,68 @@
+
+.border {
+  border: solid;
+}
+
+.fullHeightCard {
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  height: 100%;
+  position: relative;
+}
+
+.header {
+  display: flex;
+}
+/* .overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+}
+
+.overlay2 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+} */
+
+.grid {
+  display: flex;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.title {
+  padding: 0 16px;
+}
+
+.cardActions {
+  padding: 0 16px 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.applyButton {
+  background-color: rgb(85, 239, 196) !important;
+  line-height: 2.75 !important;
+}
+
+.referalAsk {
+  background-color: rgb(73, 67, 218) !important;
+}
+
+.imageDiv {
+  padding: 8px;
+}
